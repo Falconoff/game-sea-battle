@@ -1,0 +1,25 @@
+{
+  "name": "game-sea-battle",
+  "version": "1.0.0",
+  "description": "Sea Battle Game",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack-dev-server --mode=development",
+    "prod": "webpack --mode=production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Falconoff/game-sea-battle.git"
+  },
+  "author": "Falconoff",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Falconoff/game-sea-battle/issues"
+  },
+  "homepage": "https://github.com/Falconoff/game-sea-battle#readme",
+  "devDependencies": {
+    "webpack": "^5.91.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^5.0.4"
+  }
+}

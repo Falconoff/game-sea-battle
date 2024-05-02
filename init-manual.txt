@@ -1,0 +1,55 @@
+https://webpack.js.org/guides/getting-started/
+
+1. npm init -y
+
+2. npm install webpack webpack-cli --save-dev
+
+
+
+
+3. Add file webpack.config.js and configurate it:
+
+const path = require('path');
+
+module.exports = {
+  entry: './src/index.js',
+  output: {
+    filename: 'main.js',
+    path: path.resolve(__dirname, 'dist'),
+  },
+};
+
+4. Add ' "build": "webpack" ' into "scripts" of package.json
+
+5. npm run build
+
+
+6. Add mode: 'development' into "module.exports" of webpack.config.js
+
+7. ...or 'webpack --mode=development' into "scripts" of package.json
+
+  "scripts": {
+    "dev": "webpack --mode=development",
+    "prod": "webpack --mode=production"
+  },
+
+Also Delete from "scripts" of package.json ' "build": "webpack",' and ' mode: "development",' from module.exports of webpack.config.js
+
+
+8. Add DevServer, install the module:
+
+npm install webpack-dev-server --save-dev
+
+9. and change in package.json
+
+  "scripts": {
+    "dev": "webpack --mode=development",
+to
+  "scripts": {
+    "dev": "webpack-dev-server --mode=development",
+
+
+10. webpack.config.js options for DevServer
+
+  port
+  open the browser after server had been started
