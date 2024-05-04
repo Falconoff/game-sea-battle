@@ -9,15 +9,15 @@ https://webpack.js.org/guides/getting-started/
 
 3. Add file webpack.config.js and configurate it:
 
-const path = require('path');
+    const path = require('path');
 
-module.exports = {
-  entry: './src/index.js',
-  output: {
-    filename: 'main.js',
-    path: path.resolve(__dirname, 'dist'),
-  },
-};
+    module.exports = {
+      entry: './src/index.js',
+      output: {
+        filename: 'main.js',
+        path: path.resolve(__dirname, 'dist'),
+      },
+    };
 
 4. Add ' "build": "webpack" ' into "scripts" of package.json
 
@@ -42,14 +42,102 @@ npm install webpack-dev-server --save-dev
 
 9. and change in package.json
 
-  "scripts": {
-    "dev": "webpack --mode=development",
-to
-  "scripts": {
-    "dev": "webpack-dev-server --mode=development",
+    "scripts": {
+      "dev": "webpack --mode=development",
+  to
+    "scripts": {
+      "dev": "webpack-dev-server --mode=development",
 
 
 10. webpack.config.js options for DevServer
 
   port
   open the browser after server had been started
+
+
+
+11. Add Loaders (example: css-loader)
+
+for different Loaders in webpack.config.js
+
+  module: {
+    rules: [{}],
+  },
+
+a - create folder "css", create file "styles.css"
+b - in file index.js import "./css/styles.css"; 
+
+c - npm install --save-dev css-loader
+d - npm install --save-dev style-loader
+
+
+
+12. Install Babel (https://babeljs.io/setup#installation)
+
+a - npm install --save-dev babel-loader @babel/core
+
+b -  add rule in webpack.config.js
+    {
+      module: {
+        rules: [
+          {
+            test: /\.m?js$/,
+            exclude: /node_modules/,
+            use: {
+              loader: "babel-loader",
+              options: {
+                presets: ['@babel/preset-env']
+              }
+            }
+          }
+
+c - npm install @babel/preset-env --save-dev
+
+d - Create babel.config.json configuration file
+e - In order to enable the preset you have to define it in your babel.config.json file, like this:
+    {
+      "presets": ["@babel/preset-env"]
+    }
+
+
+    
+    
+13. npm install sass-loader sass --save-dev
+(https://webpack.js.org/loaders/sass-loader/)
+
+
+
+--- PLUGINS ---
+
+HtmlWebpackPlugin
+(https://webpack.js.org/plugins/html-webpack-plugin/)
+
+1. npm install --save-dev html-webpack-plugin
+
+2. add in webpack.config.js:
+
+    const HtmlWebpackPlugin = require('html-webpack-plugin');
+    const path = require('path');
+
+    module.exports = {
+      ...
+      plugins: [new HtmlWebpackPlugin()],
+    };
+
+3. (https://github.com/jantimon/html-webpack-plugin#options)
+Add path to our HTML-template
+
+  plugins: [
+    new HtmlWebpackPlugin({ template: "./src/index.html" }),
+  ],
+
+
+MiniCssExtractPlugin
+(https://webpack.js.org/plugins/mini-css-extract-plugin/)
+
+1. npm install --save-dev mini-css-extract-plugin
+
+2.
+
+3. NOT WORKING :(
+
